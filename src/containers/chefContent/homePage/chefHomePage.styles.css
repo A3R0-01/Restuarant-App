@@ -1,0 +1,38 @@
+.chefHomePage-container{
+    background-color: #5173d9;
+    margin: 0;
+    width: 100;
+    min-height: 450px;
+    -webkit-box-pack: center;
+            justify-content: center;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                    flex-direction: row;
+}
+
+.chefHomePage-container .items {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    min-width: 50px;
+    min-height: 100px;
+    margin: 10px;
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+    border: 10px black solid;
+    font-size: 3rem;
+    text-align: center;
+    padding: auto;
+}

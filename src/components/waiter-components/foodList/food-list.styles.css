@@ -1,0 +1,256 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+.food-heading, .food-btn-text, .food-paragraph, .food-order-details, .food-details-to-send {
+  margin: 0;
+  padding: 0;
+}
+.food-details-to-send{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.food-price{
+  margin-top: 10px;
+  font-family: "Oswald", sans-serif;
+}
+.food-heading, .food-btn-text {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  color: #333333;
+}
+
+.food-heading {
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  margin-bottom: 10px;
+}
+
+.food-paragraph, .food-details-to-send {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #555;
+  line-height: 22px;
+  font-size: 1.5rem;
+}
+
+.food-order-details, .food-details-to-send {
+  text-decoration: none;
+  list-style: disc outside;
+}
+
+.food-order-details {
+  padding-left: 20px;
+}
+
+svg {
+  margin: 0px;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.food-list{
+  margin: 0;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  height: 675px;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  overflow: auto;
+}
+
+.food-cardContainer {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  min-width: 300px;
+  min-height: 400px;
+  margin: 4px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.active {
+  -webkit-transform: translateZ(0px) rotateY(180deg) !important;
+          transform: translateZ(0px) rotateY(180deg) !important;
+}
+.active:after {
+  display: none;
+}
+
+.food-card {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  -moz-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: translateZ(-100px);
+          transform: translateZ(-100px);
+  -webkit-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.food-card:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  box-shadow: 0 14px 50px -4px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1.4);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1.4);
+}
+.food-card:hover {
+  -webkit-transform: translateZ(0px);
+          transform: translateZ(0px);
+}
+.food-card:hover:after {
+  opacity: 1;
+}
+.food-card .food-side {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.711);
+}
+.food-card .food-front {
+  z-index: 2;
+}
+.food-card .food-back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.food-card .food-info {
+  padding: 16px;
+}
+
+.food-front .img {
+  background-color: #dadce2;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+  height: 250px;
+}
+.food-front .img1 {
+  background-image: url('img.jpg');
+}
+.food-front .img2 {
+  background-image: url(http://i.imgur.com/2p9VXAn.jpg);
+}
+.food-front .img3 {
+  background-image: url(http://i.imgur.com/I5ABT2v.jpg);
+}
+
+.food-back {
+  position: relative;
+}
+.food-back .food-heading {
+  margin-top: 6px;
+  margin-bottom: 18px;
+}
+.food-back .food-details {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.food-back .food-details p {
+  color: #c4c4c4;
+  font-weight: 300;
+  margin: 1px 0 0 6px;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.food-back .food-details:hover p {
+  color: #555;
+}
+.food-back .food-details-to-send {
+  line-height: 22px;
+  margin: 2px 0 6px 0;
+}
+.food-back .food-btn {
+  position: absolute;
+  bottom: 16px;
+  width: calc(100% - 32px);
+  height: 56px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  background-color: #FFC324;
+  background-image: -webkit-gradient(linear, right top, left top, from(#FFB714), to(#FFE579));
+  background-image: linear-gradient(-90deg, #FFB714, #FFE579);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.food-back .back-btn {
+  bottom: 16px;
+  margin-top: 50px;
+  width: calc(70% - 32px);
+  height: 30px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  background-color: #24ff9c;
+  background-image: -webkit-gradient(linear, right top, left top, from(#FFB714), to(#FFE579));
+  background-image: linear-gradient(-90deg, #FFB714, #FFE579);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.food-back .food-btn:hover .food-btn-text, .food-back .back-btn:hover .food-btn-text  {
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+.food-back .food-btn:hover svg, .food-back .back-btn:hover svg{
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+  opacity: 1;
+}
+.food-back .food-btn .food-btn-text, .food-back .back-btn .food-btn-text{
+  -webkit-transform: translateX(12px);
+          transform: translateX(12px);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+}
+.food-back .food-btn svg, .food-back .back-btn svg{
+  margin: 1px 0 0 4px;
+  -webkit-transform: translateX(-8px);
+          transform: translateX(-8px);
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.food-title{
+  font-size: 3rem;
+}
+.sort-elements{
+  font-size: 3rem;
+}
+.sort-elements select{
+  height: 30px;
+  width: 80px;
+  font-size: 2rem;
+}
+

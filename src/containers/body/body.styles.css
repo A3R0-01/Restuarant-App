@@ -1,0 +1,29 @@
+.tables-list {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 20px;
+}
+.table-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #95dada;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translate2(0);
+    transition: transform 0.25s ease-out;
+    height: 200px;
+    width: 100px
+}
+.table-container:hover{
+    transform: scale(1.05);
+}
+
+.table-details{ 
+    font-size: 10px;
+}

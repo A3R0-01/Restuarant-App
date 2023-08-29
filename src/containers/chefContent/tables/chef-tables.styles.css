@@ -1,0 +1,85 @@
+.chef-table-list{
+    background-color: rgba(0, 0, 0, 0.636);
+    min-width: 90%;
+    max-width: 100%;
+    margin: auto;
+    padding: 30px;
+    transition: all 1.5s ease-in-out;
+}
+.chef-table-headings{
+    font-size: 3rem;
+    text-transform: uppercase;
+    border-bottom: 5px solid whitesmoke;
+    margin-bottom: 30px;
+}
+.chef-table{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr;
+    justify-content: space-around;
+    grid-gap: 20px;
+    text-align: left;
+}
+.chef-table-list .chef-table-container .inner{
+    font-size: 2rem;
+    padding: 10px 20px;
+}
+.tables-edit-button{
+    cursor: pointer;
+    color: rgba(0, 255, 255, 0.684);
+    border: 1px solid whitesmoke;
+    text-align: center;
+}
+.chef-table-container{
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    transition: all 2s ease-in;
+
+}
+.chef-table-edit option{
+    background-color: rgba(60, 59, 59, 0.585);
+    color: white;
+    font-size: 2rem;
+}
+
+.chef-table-edit {
+    background-color: rgba(12, 12, 12, 0.84);
+    width: 80%;
+    font-size: 2rem;
+    color: white;
+    transition: all 4s;
+
+}
+
+.chef-table-edit:active{
+    box-shadow: 5px 5px 5px 5px green;
+}
+.table-edit-component{
+    border-top: 1px solid whitesmoke;
+}
+
+.add-table-btn{
+    margin: auto;
+    font-size: 2rem;
+    color: white;
+    border-top: 1px solid whitesmoke;
+}
+.edit-section{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+}
+.tables-red-btn{
+    color: rgba(237, 15, 15, 0.684);
+    border: 1px solid whitesmoke;
+    background-color: rgba(0, 128, 0, 0.545);
+    
+}
+.edit-section div{
+    border-radius: 5px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.refresh-button {
+    font-size: 2rem;
+}

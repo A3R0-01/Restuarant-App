@@ -80,17 +80,18 @@ const ChefCategoryList = (props) => {
             <div className="add-category-section">
                 {
                     addTable ?
-                        <div className="add-category-form">
+                        <center className="add-category-form">
                             Category Name: <input type="text" onChange={(event) => setCategoryName(event.target.value)} /><br />
-                            <div>
+                            <center className="chef-category-button-grp">
                                 <div onClick={() => AddElement('http://localhost:8001/categories', {
                                     type: 'categories/create',
                                     CategoryName: categoryName
-                                })}>
+                                })} className="button">
                                     Add Table</div>
-                                <div onClick={() => setAddTable(!addTable)}>Cancel</div>
-                            </div>
-                        </div>
+                                <div className="button"
+                                onClick={() => setAddTable(!addTable)}>Cancel</div>
+                            </center>
+                        </center>
                         :
                         <div className="button" onClick={() => setAddTable(!addTable)}>Add Table</div>
                 }

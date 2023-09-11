@@ -4,14 +4,15 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import {createLogger} from 'redux-logger';
 import thunkMiddleware from 'redux-thunk'
-import { WaiterAppData, RequestData, RequestClearanceData } from './Waiter redux elements/reducers';
+import { WaiterAppData, RequestData, RequestClearanceData, CategoriesData, MenuData } from './Waiter redux elements/reducers';
 import { ChefAppData } from './Chef redux elements/reducer';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ManagerAppData } from './ManagerReduxElements/reducer';
 
 const Logger = createLogger();
-const rootReducer = combineReducers({WaiterAppData, RequestData, RequestClearanceData, ChefAppData})
+const rootReducer = combineReducers({WaiterAppData, RequestData, RequestClearanceData, ChefAppData, ManagerAppData, CategoriesData, MenuData})
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, Logger))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,33 +1,38 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import FoodCard from "./food-card/food-card.component";
 import './food-list.styles.css'
 import { connect } from "react-redux";
-import { RequestData } from "../../../Waiter redux elements/actions";
+import { FetchMenu } from "../../../Waiter redux elements/actions";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({WaiterAppData, MenuData}) => {
     return {
-        Menu: state.RequestData.dataRequested,
-        isPending: state.RequestData.isPending,
-        error: state.RequestData.error,
-        TableData: state.WaiterAppData.TableSelected
+        Menu: MenuData.Data,
+        isPending: MenuData.isPending,
+        error: MenuData.error,
+        TableData: WaiterAppData.TableSelected,
+        EmployeeData: WaiterAppData.EmployeeData,
+        SortColumn: WaiterAppData.SortColumn,
+        Category: WaiterAppData.Category
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return{
-        RequestMenu: (url, body) => dispatch(RequestData(url, body))
+        RequestMenu: (body) => dispatch(FetchMenu(body))
     }
 }
 
 const FoodList = (props) => {
-    const [sortColumn, setSortColumn] = useState('FoodName')
-    const {Menu, isPending, TableData, Customer,RequestMenu, Category, EmployeeData } = props
+    const {Menu, isPending, TableData, Customer,RequestMenu, Category, EmployeeData, SortColumn
+    
+    } = props
     useEffect(() => {
 
-        RequestMenu('http://localhost:8000/menu', {
+        RequestMenu({
             category: Category.CategoryId,
-            sortColumn: sortColumn
+            sortColumn: SortColumn,
+            EmployeeData: EmployeeData
         })
-    }, [sortColumn])
+    }, [SortColumn, Category])
     let count = 0
     return isPending?
             <h1>Loading</h1>:
@@ -35,13 +40,6 @@ const FoodList = (props) => {
         <div className="foodBody">
             <center>
                 <h1 className="food-title">{Category.CategoryName}</h1>
-                <div className="sort-elements">
-                    <label htmlFor="sort-by">Sort By </label>
-                    <select id="sort-by" onChange={(event) => setSortColumn(event.target.value)}>
-                        <option value="FoodName" key="name">Name</option>
-                        <option value="FoodPrice" key="price">Price</option>
-                    </select>
-                </div>
             </center>
             <div className="food-list">
                 {Menu.map((food) => {

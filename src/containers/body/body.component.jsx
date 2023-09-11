@@ -1,12 +1,11 @@
-import { useEffect } from "react";
 import {connect} from 'react-redux'
 import './body.styles.css';
 import TableList from "../../components/waiter-components/table/tableList.component";
 import Categories from "../../components/waiter-components/categories/category-list.component";
-import FoodList from "../../components/waiter-components/foodList/foodList.component";
 import Navigation from "../../components/waiter-components/nav-bar/navigation.component";
 import OrdersList from "../../components/waiter-components/ordersComponents/ordersList.component.";
 import CustomerPage from "../../components/waiter-components/customer-page/customer-page.component";
+import FoodBody from "../../components/waiter-components/foodList/FoodBody.component";
 
 const mapStateToProps = (state) => {
     return {
@@ -53,8 +52,8 @@ const WaiterPage = (props) => {
             <Navigation />
             {(PageName === 'orders') && !(TableSelected === 'nothing') && CustomerSelected!== 'nothing'
                 ? <OrdersList data={TableSelected} employeeData={employeeData} customerData={CustomerSelected}/>
-                : PageName === 'food' && !(Category === 'nothing') && TableSelected !== 'nothing' && CustomerSelected !== 'nothing'
-                    ? <FoodList Category={Category} EmployeeData={employeeData} Customer={CustomerSelected} Table={TableSelected} />
+                : PageName === 'food' && TableSelected !== 'nothing' && CustomerSelected !== 'nothing'
+                    ? <FoodBody />
                     : (PageName === 'categories') && !(TableSelected === 'nothing') && (CustomerSelected!== 'nothing')
                         ? <Categories employeeData={employeeData} />
                         : (PageName === 'dashboard') && (TableSelected !== 'nothing')

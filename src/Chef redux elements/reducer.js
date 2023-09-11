@@ -21,7 +21,11 @@ import {
   ObjectToExpand,
   ObjectToExpandDefault,
   ElementUpdate,
-  ElementUpdateDefault
+  ElementUpdateDefault,
+  OrdersSuccess,
+  OrdersPending,
+  OrdersError,
+  SortBy,
 } from "./constants";
 
 // The initial state for the Chef's App, this state will be used to view and navigate the application for the chef
@@ -48,6 +52,10 @@ const ChefState = {
   CategoryList: [],
   CategoryListError: false,
   CategoryListPending: false,
+
+  Orders: [],
+  OrdersError: false,
+  OrdersPending: false,
 
   ObjectToExpand: 0,
   ElementUpdated: ""
@@ -120,6 +128,19 @@ export const ChefAppData = (state = ChefState, action = {}) => {
       return Object.assign({}, state, {ElementUpdated: action.payload})
     case ElementUpdateDefault:
       return Object.assign({}, state, {ElementUpdated: action.payload})
+
+    case OrdersSuccess:
+      return Object.assign({}, state, {  Orders: action.payload,
+        OrdersError: false,
+        OrdersPending: false,})
+    case OrdersPending:
+      return Object.assign({}, state, { OrdersError: false,
+        OrdersPending: true,})
+    case OrdersError:
+      return Object.assign({}, state, { OrdersError: true,
+        OrdersPending: false})
+    case SortBy: 
+        return Object.assign({}, state, {SortBy: action.payload})
     default:
       return state;
   }

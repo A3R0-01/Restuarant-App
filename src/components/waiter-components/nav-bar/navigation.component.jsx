@@ -33,7 +33,7 @@ const Navigation = (props) => {
             <li onClick={() => navControl('orders')} ><a>Orders</a></li>
             <li onClick={() => navControl('categories')} ><a>Categories</a></li>
             <li onClick={() => navControl('tables')} ><a>Tables</a></li>
-            <li onClick={() => navControl('tables')} ><a>Cost</a></li>
+            <li onClick={() => navControl('food')} ><a>Menu</a></li>
             <button className="nav-btn" onClick={() => SignOut('login')}>Sign Out</button>
         </ul>
 

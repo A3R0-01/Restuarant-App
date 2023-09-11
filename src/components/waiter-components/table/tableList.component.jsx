@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import './tables.styles.css'
 import Table from './table.component'
 import { connect } from 'react-redux'
 import { RequestData } from '../../../Waiter redux elements/actions'

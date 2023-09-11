@@ -9,7 +9,7 @@
 .food-details-to-send{
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
+  margin-top: 50px;
 }
 .food-price{
   margin-top: 10px;
@@ -18,7 +18,6 @@
 .food-heading, .food-btn-text {
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
-  color: #333333;
 }
 
 .food-heading {
@@ -31,7 +30,6 @@
 .food-paragraph, .food-details-to-send {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  color: #555;
   line-height: 22px;
   font-size: 1.5rem;
 }
@@ -56,12 +54,10 @@ svg {
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
-  height: 675px;
   -webkit-box-align: center;
           align-items: center;
   -webkit-box-pack: center;
           justify-content: center;
-  overflow: auto;
 }
 
 .food-cardContainer {
@@ -99,7 +95,6 @@ svg {
 .food-card:after {
   content: "";
   position: absolute;
-  z-index: -1;
   width: 100%;
   height: 100%;
   border-radius: 5px;
@@ -122,7 +117,6 @@ svg {
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.711);
 }
 .food-card .food-front {
   z-index: 2;
@@ -198,6 +192,10 @@ svg {
   background-image: linear-gradient(-90deg, #FFB714, #FFE579);
   border-radius: 5px;
   cursor: pointer;
+  color: black;
+  font-weight: bolder;
+  font-size: 2rem;
+
 }
 .food-back .back-btn {
   bottom: 16px;
@@ -215,6 +213,8 @@ svg {
   background-image: linear-gradient(-90deg, #FFB714, #FFE579);
   border-radius: 5px;
   cursor: pointer;
+  color: black;
+  font-weight: bolder;
 }
 
 .food-back .food-btn:hover .food-btn-text, .food-back .back-btn:hover .food-btn-text  {

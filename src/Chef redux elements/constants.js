@@ -13,6 +13,11 @@ export const UpdateError = "UpdateError"
 export const UpdateSuccess = "UpdateSuccess"
 export const UpdateDefault = "UpdateDefault"
 
+export const OrdersPending = "UpdatePending"
+export const OrdersError = "OrdersError"
+export const OrdersSuccess = "OrdersSuccess"
+export const OrdersDefault = "OrdersDefault"
+
 export const CreateElementPending = "CreateElementPending"
 export const CreateElementError = "CreateElementError"
 export const CreateElementSuccess = "CreateElementSuccess"
@@ -22,7 +27,9 @@ export const CategoryListPending = 'CategoryListPending'
 export const CategoryListSuccess = 'CategoryListSuccess'
 export const CategoryListError = 'CategoryListError'
 
+
 export const ObjectToExpand = 'ObjectToExpand'
+export const SortBy = 'SortBy'
 export const ObjectToExpandDefault = 'ObjectToExpandDefault'
 export const ElementUpdate = "ElementUpdate"
 export const ElementUpdateDefault = "ElementUpdateDefault"

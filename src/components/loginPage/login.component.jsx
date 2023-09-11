@@ -3,6 +3,7 @@ import { setEmployee } from '../../Waiter redux elements/actions';
 import './login.styles.css';
 import { Component } from "react";
 import { ChefDataFunction } from '../../Chef redux elements/actions';
+import { SignManagerIn } from '../../ManagerReduxElements/actions';
 
 const mapStateToProps = (state) => {
     return{
@@ -11,7 +12,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return{
         SetEmployee: (employee) => dispatch(setEmployee(employee)),
-        SetChefData: (chefData) => dispatch(ChefDataFunction(chefData))
+        SetChefData: (chefData) => dispatch(ChefDataFunction(chefData)),
+        SetManagerData: (manager) => dispatch(SignManagerIn(manager))
     }
 }
 
@@ -44,6 +46,8 @@ class Login extends Component{
                 this.props.SetEmployee(data[0])
                 }else if(data[0].Position === 'CHEF'){
                     this.props.SetChefData(data[0])
+                }else if(data[0].Position === 'MANAGER'){
+                    this.props.SetManagerData(data[0])
                 }
                 // this.props.pageFunction({
                 //     id: data[0].EmployeeId,

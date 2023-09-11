@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) =>{
 const ChefHomePage = (props) => {
     const {SetPageName }= props
     return (
-        <div className="chefHomePage-container">
+        <div className="chefHomePage-container text-slate-300">
             <div onClick={() => SetPageName('tables')} className="items">Tables</div>
             <div onClick={() => SetPageName('orders')} className="items">Orders</div>
             <div onClick={() => SetPageName('food')} className="items">Food</div>

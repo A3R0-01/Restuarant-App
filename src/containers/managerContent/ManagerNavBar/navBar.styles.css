@@ -22,7 +22,7 @@ ul {
 }
 
 .navbar {
-  background: black;
+  background: #08080893;
   color: #fff;
   padding: 15px;
   width: 100%;
@@ -32,7 +32,6 @@ ul {
   position: sticky;
   top: 0px;
   margin-bottom: 10px;
-  z-index: 1000;
 }
 
 .navbar .logo {
@@ -163,7 +162,7 @@ section {
 
   .navbar .links {
     position: fixed;
-    background: black;
+    background: #080808;
     z-index: 40;
     top: 0;
     left: -100%;

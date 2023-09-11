@@ -1,9 +1,0 @@
-.table-list{
-    display: flex;
-    flex-wrap: wrap;
-}
-.table-container{
-    width: 300px;
-    height: 300px;
-    margin: 30px;
-}

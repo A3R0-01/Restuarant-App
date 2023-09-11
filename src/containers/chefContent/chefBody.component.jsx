@@ -3,6 +3,7 @@ import ChefHomePage from "./homePage/homePage.component"
 import ChefCategoryList from "./chefFoodPage/chefFoodPage/chefCategoryList.component"
 import { connect } from "react-redux"
 import TableList from "./tables/tableList.component"
+import ChefOrdersListComponent from "./ChefOrdersComponents/ChefOrdersList.component"
 
 const mapStateToProps = (state) => {
     return{
@@ -14,12 +15,14 @@ const maDispatchToProps = (dispatch) => {
 }
 const ChefPage = (props) => {
     const {PageName }= props
+    
     return (
         <div className="chef-page">
             <NavBar />
             {PageName === 'food'
                 ?<ChefCategoryList/>
                 :PageName === 'tables'? <TableList/>
+                :PageName === 'orders'? <ChefOrdersListComponent />
                 :<ChefHomePage />
             }
         </div>

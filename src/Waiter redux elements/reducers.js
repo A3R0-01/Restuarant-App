@@ -1,3 +1,4 @@
+
 import {
   ChangeTableSelected,
   ChangeCustomer,
@@ -12,6 +13,13 @@ import {
   RequestClearanceDataSuccess,
   RequestClearanceDataFailed,
   SigningOut,
+  CategoriesDataSuccess,
+  CategoriesDataError,
+  CategoriesDataPending,
+  MenuError,
+  MenuPending,
+  MenuSuccess,
+  SortColumn,
 } from "./constaint";
 
 // The initial state for the App Data on the Waiters Pages
@@ -20,11 +28,12 @@ const WaiterState = {
   CustomerSelected: "nothing",
   EmployeeData: "nothing",
   PageName: "tables",
-  Category: "nothing",
+  Category: { CategoryId: 0, CategoryName: 'All' },
   SignedIn: false,
   OrderFoodPending: false,
   OrderFoodError: false,
-  OrderFoodSuccess: false
+  OrderFoodSuccess: false,
+  SortColumn: 0
 };
 // The initial state for any data requests that are made eg. table list, menu list and order lists
 const initialRequestedData = {
@@ -66,6 +75,8 @@ export const WaiterAppData = (state = WaiterState, action = {}) => {
         Category: "nothing",
         SignedIn: false,
       });
+    case SortColumn:
+      return Object.assign({}, state, {SortColumn: action.payload})
     default:
       return state;
   }
@@ -120,3 +131,40 @@ export const RequestClearanceData = (
       return state;
   }
 };
+const categoriesDataState = {
+  isPending: false,
+  Data: [],
+  error: false
+}
+export const CategoriesData = (state=categoriesDataState, action={}) => {
+  switch(action.type) {
+    case CategoriesDataSuccess:
+      return Object.assign({}, state, {isPending: false,
+        Data: action.payload,
+        error: false})
+    case CategoriesDataError:
+      return Object.assign({}, state, {isPending: false, error: true})
+    case CategoriesDataPending:
+      return Object.assign({}, state, {isPending: true,
+        error: false})
+    default:
+      return state;
+  }
+}
+const MenuState = {
+  isPending: false,
+  error: false,
+  Data: []
+}
+export const MenuData = (state = MenuState, action={}) =>{
+  switch(action.type){
+    case MenuError:
+      return Object.assign({}, state, {isPending: false, error: true})
+    case MenuPending:
+      return Object.assign({}, state, {isPending: true, error: false})
+    case MenuSuccess:
+      return Object.assign({}, state, {isPending: false, Data: action.payload, error: false})
+    default:
+      return state;
+  }
+}

@@ -1,8 +1,79 @@
+@tailwind base;
+
+
+.chef-order-component{
+  @apply capitalize
+}
+.chef-orders-container{
+  display: grid;
+  grid-template-columns: 1fr 2fr
+}
+.chef-order-card{
+  @apply grid grid-flow-col mb-4 gap-2 mx-auto  p-5 bg-zinc-700 text-gray-300 bg-gradient-to-bl
+}
+.chef-order-headings{
+  @apply h-20 text-4xl uppercase
+}
+.chef-order-headings, .chef-order-list{
+  @apply xl:w-4/5 md:w-5/6 sm:w-11/12 mx-auto mb-7
+}
+.home-page-item{
+  @apply w-72 h-72 rounded-2xl bg-neutral-800 text-slate-300 shadow-sm shadow-slate-400 m-8 grid place-items-center text-5xl cursor-pointer
+}
+.input-fields input{
+  @apply bg-inherit rounded-md w-fit overflow-ellipsis p-0 place-self-start
+}
+
+.addStaff-container div input{
+  @apply bg-slate-700 focus:border-none focus:border-green-500
+}
+.table-list{
+  @apply 
+  flex flex-row flex-wrap justify-around
+  lg:w-4/5 md:w-5/6 sm:w-11/12 m-auto
+}
+.table-container{
+  @apply  rounded-xl text-4xl grid grid-flow-col grid-cols-3 gap-2 p-2 m-6 lg:w-3/12 md:w-1/3 sm:w-2/3 w-2/3 h-96 cursor-pointer hover:shadow-lg hover:shadow-green-500 place-items-center
+}
+.table-details{
+  @apply grid grid-flow-row grid-rows-4 gap-1 text-left 
+}
+.category-list{
+  @apply
+  flex flex-row flex-wrap
+  p-9 w-full sm:w-11/12 md:w-10/12 lg:w-3/4 m-auto justify-around 
+  lg:text-6xl md:text-5xl sm:text-4xl text-3xl
+  border-4 border-zinc-700 border-solid
+}
+.category-card{
+  @apply
+  hover:shadow-lg border-2 border-solid
+  w-5/6 sm:w-2/3 md:w-2/5 lg:w-1/4
+  h-64 sm:h-80 md:h-96
+  grid grid-flow-row sm:grid-rows-4 grid-rows-3
+  m-4 sm:m-6 lg:m-7
+  p-1
+  cursor-pointer
+}
+.category-det{
+  @apply 
+  lg:text-6xl md:text-5xl sm:text-4xl text-3xl text-center 
+  row-span-1
+}
+.category-name{
+  @apply
+  grid place-items-center underline uppercase text-center
+  row-span-2 sm:row-span-3
+}
+.navbar{
+  @apply text-xl sm:text-xl md:text-2xl lg:text-3xl
+}
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Cambria';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -12,9 +12,13 @@ import {
     ElementUpdateDefault,
     ObjectToExpand,
     ObjectToExpandDefault,
+    OrdersError,
+    OrdersPending,
+    OrdersSuccess,
     SelectObjectToEdit,
     SetChefData,
     SetChefPageName,
+    SortBy,
     TableClassesDefault,
     TableClassesError,
     TableClassesPending,
@@ -35,6 +39,7 @@ export const ChefPageNameFunction = (pageName) => (dispatch) => {
     dispatch({type: TableClassesDefault})
     dispatch(AddingElementDefault())
     dispatch(SetDefaultObjectToExpand())
+    dispatch({type: SortBy, payload: 0})
 }
 // this is the function that sets the chef's credentials on the app
 export const ChefDataFunction = (chefData) => ({
@@ -57,6 +62,8 @@ export const SetObjectedEdited = (objectId, body=false) => dispatch => {
         }
     }
 }
+
+export const SetSortBy = (column) => ({type: SortBy, payload: column})
 export const DefaultObjectEdited = () => ({type: SelectObjectToEdit, payload: 0})
 
 
@@ -85,7 +92,7 @@ export const UpdateElement = (url, body) => (dispatch) => {
         }else{
             dispatch({type: UpdateError, payload: body.Id})
         }
-    }).catch({type: UpdateError, payload: body.Id})
+    }).catch(dispatch({type: UpdateError, payload: body.Id}))
 }
 
 
@@ -107,4 +114,14 @@ export const GetChefCategories = (body) => (dispatch) => {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(body)
     }).then(response => response.json()).then(data=> dispatch({type: CategoryListSuccess, payload: data})).catch(dispatch({type: CategoryListError}))
+}
+
+export const GetChefOrders = (body) => dispatch => {
+    dispatch({type: OrdersPending})
+    fetch('http://localhost:8001/orders'
+        , {
+        method: 'post',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(body)
+    }).then(response => response.json()).then(data=> dispatch({type: OrdersSuccess, payload: data})).catch(dispatch({type: OrdersError}))
 }
